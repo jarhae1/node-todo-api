@@ -17,31 +17,31 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp',(err, db)=>{
   //if using v3 of mongodb then add this line of code:
   //const db = client.db('TodoApp')
 
-  // db.collection('Todos').insertOne({
-  //   text:'Something to do',
-  //   completed:false
-  // },(err,result)=>{
-  //   if(err){
-  //     return console.log('Unable to insert todo',err);
-  //   }
-  //   console.log(JSON.stringify(result.ops, undefined, 2))
-  // })
-
-  db.collection('Users').insert({
-      firstName:'Larry',
-      lastName:'Kemp',
-      phone:'808-833-1021',
-      age:45,
-      Address:'564 N 323 W',
-      City:'Roy',
-      State:'Utah'
+  db.collection('Todos').insertOne({
+    text:'Study Node',
+    completed:false
   },(err,result)=>{
     if(err){
-      return console.log('Can\t add user');
+      return console.log('Unable to insert todo',err);
     }
-    console.log(result.ops[0]._id.getTimestamp());
-
+    console.log(JSON.stringify(result.ops, undefined, 2))
   })
+
+  // db.collection('Users').insert({
+  //     firstName:'Larry',
+  //     lastName:'Kemp',
+  //     phone:'808-833-1021',
+  //     age:45,
+  //     Address:'564 N 323 W',
+  //     City:'Roy',
+  //     State:'Utah'
+  // },(err,result)=>{
+  //   if(err){
+  //     return console.log('Can\t add user');
+  //   }
+  //   console.log(result.ops[0]._id.getTimestamp());
+  //
+  // })
 
 
 //if using v3 replace db.close() with client.close()
